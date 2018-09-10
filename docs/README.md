@@ -6,7 +6,7 @@
 ## Relay
 
 - [Relay1.0](/zh-cn/relay1)
-- [光锥中继](/zh-cn/lightcone.md)
+- [Lightcone Relay](/zh-cn/lightcone.md)
 
 ## Front End
 
