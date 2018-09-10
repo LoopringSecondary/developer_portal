@@ -1,4 +1,4 @@
-![logo](../_media/icon.png)
+![logo](/_media/icon.png)
 
 # Developer Portal <small>2.0</small>
 

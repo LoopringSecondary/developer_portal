@@ -1,3 +1,4 @@
+![logo](/_media/icon.png)
 # 路印开发者入口<small>2.0</small>
 
 
