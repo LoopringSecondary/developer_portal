@@ -6,17 +6,17 @@ Ethereum 部分主要针对以太坊钱包功能。可以实现以太坊账户�
 
 Relay 部分主要针对Loopring Relay的接口接入，包括JSON-RPC 接口和SocketIO接口。具体的接口详情见[Loopring Relay 接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2)。
 
-## 获取
+# 获取
 
 ```javascript
 npm install loopring.js --save
 ```
   
-## 浏览器端使用方法
+# 浏览器端使用方法
 
 loopring.js包含UMD规范的版本和CommonJS规范的版本
 
-### UMD 规范包
+## UMD 规范包
 
 通过下面的方式引入 loopring.min.js
 
@@ -32,7 +32,7 @@ window.loopring.ethereum
 window.loopring.relay
 ```
 
-### CommonJS  规范包  (要求引入babel-polyfill)
+## CommonJS  规范包  (要求引入babel-polyfill)
 
 ```javascript
 import loopring from 'loopring.js';
@@ -42,9 +42,9 @@ import {relay} from 'loopring.js';
 const loopring = require('loopring.js');
 ```
 
-## Ethereum
+# Ethereum
 
-### Account
+## Account
 
 #### path
 
@@ -1621,7 +1621,7 @@ const ethNode = new Eth(host);
 
 详情参考 [Ethereum JSON-RPC eth_call 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_call)
 
-## Relay
+# Relay
 
 实现Loopring Relay的JSON-RPC 接口和Socket 接口。Loopring Relay的接口详情见[Loopring Relay 接入文档](https://github.com/Loopring/relay/blob/wallet_v2/LOOPRING_RELAY_API_SPEC_V2.md)
 
