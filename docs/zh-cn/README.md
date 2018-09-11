@@ -5,7 +5,7 @@
 
 ## 中继
 
-- [中继1.0](/zh-cn/relay1)
+- [中继1.0 API](/zh-cn/relay-api)
 - [光锥中继](/zh-cn/lightcone.md)
 
 ## 前端

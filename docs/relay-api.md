@@ -25,59 +25,6 @@ SocketIO(mainnet) : https://relay1.loopring.io/socket.io or https://relay1.loopr
 *** Some socketio client make append '/socket.io' path in the end of the URL automatically. 
 ```
 
-## JSON-RPC Methods 
-
-* The relay supports all Ethereum standard JSON-RPCs, please refer to [eth JSON-RPC](https://github.com/ethereum/wiki/wiki/JSON-RPC).
-* [loopring_getBalance](#loopring_getbalance)
-* [loopring_submitOrder](#loopring_submitorder)
-* [loopring_getOrders](#loopring_getorders)
-* [loopring_getOrderByHash](#loopring_getorderbyhash)
-* [loopring_getDepth](#loopring_getdepth)
-* [loopring_getTicker](#loopring_getticker)
-* [loopring_getTickers](#loopring_gettickers)
-* [loopring_getFills](#loopring_getfills)
-* [loopring_getTrend](#loopring_gettrend)
-* [loopring_getRingMined](#loopring_getringmined)
-* [loopring_getCutoff](#loopring_getcutoff)
-* [loopring_getPriceQuote](#loopring_getpricequote)
-* [loopring_getEstimatedAllocatedAllowance](#loopring_getestimatedallocatedallowance)
-* [loopring_getGetFrozenLRCFee](#loopring_getgetfrozenlrcfee)
-* [loopring_getSupportedMarket](#loopring_getsupportedmarket)
-* [loopring_getSupportedTokens](#loopring_getsupportedtokens)
-* [loopring_getContracts](#loopring_getcontracts)
-* [loopring_getLooprSupportedMarket](#loopring_getlooprsupportedmarket)
-* [loopring_getLooprSupportedTokens](#loopring_getlooprsupportedtokens)
-* [loopring_getTransactions](#loopring_gettransactions)
-* [loopring_unlockWallet](#loopring_unlockwallet)
-* [loopring_notifyTransactionSubmitted](#loopring_notifytransactionsubmitted)
-* [loopring_submitRingForP2P](#loopring_submitringforp2p)
-* [loopring_getUnmergedOrderBook](#loopring_getunmergedorderbook)
-* [loopring_flexCancelOrder](#loopring_flexcancelorder)
-* [loopring_getNonce](#loopring_getnonce)
-* [loopring_getTempStore](#loopring_gettempstore)
-* [loopring_setTempStore](#loopring_settempstore)
-* [loopring_notifyCirculr](#loopring_notifycirculr)
-* [loopring_getEstimateGasPrice](#loopring_getestimategasprice)
-
-
-## SocketIO Events
-
-* [portfolio](#portfolio)
-* [balance](#balance)
-* [tickers](#tickers)
-* [loopringTickers](#loopringtickers)
-* [transactions](#transactions)
-* [marketcap](#marketcap)
-* [depth](#depth)
-* [trends](#trends)
-* [pendingTx](#pendingtx)
-* [orderBook](#orderbook)
-* [trades](#trades)
-* [orders](#orders)
-* [estimatedGasPrice](#estimatedgasprice)
-* [addressUnlock](#addressUnlock)
-* [circulrNotify](#circulrNotify)
-
 ## JSON RPC API Reference
 
 ### loopring_getBalance

@@ -5,7 +5,7 @@
 
 ## Relay
 
-- [Relay1.0](/relay)
+- [Relay1.0 API](/relay-api)
 
 ## Front End
 
@@ -15,4 +15,3 @@
 - [H5dex](/h5dex)
 
 ## Others
-(loopring.md)
