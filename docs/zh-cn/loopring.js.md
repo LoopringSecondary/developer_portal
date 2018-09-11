@@ -1,4 +1,4 @@
-## 关于Loopring.js
+# 关于Loopring.js
 
 该开发者文档主要介绍如果使用loopring.js接入路印协议。文档主要包括两个部分，Ethereum 部分和Relay接入部分。
 
@@ -9,7 +9,7 @@ Relay 部分主要针对Loopring Relay的接口接入，包括JSON-RPC 接口和
 ## 获取
 
 ```javascript
- npm install loopring.js --save
+npm install loopring.js --save
 ```
   
 ## 浏览器端使用方法
@@ -36,9 +36,9 @@ window.loopring.relay
 
 ```javascript
 import loopring from 'loopring.js';
-or
+// or
 import {relay} from 'loopring.js';
-or
+// or
 const loopring = require('loopring.js');
 ```
 
@@ -95,11 +95,11 @@ publicKeytoAddress(publicKey)//address:0x48ff2269e58a373120FFdBBdEE3FBceA854AC30
 
 ##### 参数
 
-- privateKey hex string Buffer
+- privateKey: hex string Buffer
 
 ##### 返回值
 
-- publickey hex string without prefix
+- publickey: hex string without prefix
 
 ##### 代码样例
 
@@ -115,9 +115,9 @@ const publicKey = privateKeytoPublic(privateKey);
 
 ##### 参数
 
-- mnemonic   string 
-- dpath       string
-- password  string  可以为空
+- mnemonic string 
+- dpath string
+- password string  可以为空
 
 ##### 返回值
 
