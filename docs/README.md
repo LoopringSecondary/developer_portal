@@ -5,8 +5,7 @@
 
 ## Relay
 
-- [Relay1.0](/zh-cn/relay1)
-- [Lightcone Relay](/zh-cn/lightcone.md)
+- [Relay1.0 API](/relay-api)
 
 ## Front End
 
@@ -16,4 +15,3 @@
 - [H5dex](/h5dex)
 
 ## Others
-(loopring.md)
