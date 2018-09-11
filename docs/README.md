@@ -5,8 +5,7 @@
 
 ## Relay
 
-- [Relay1.0](/zh-cn/relay1)
-- [Lightcone Relay](/zh-cn/lightcone.md)
+- [Relay1.0](/relay)
 
 ## Front End
 
