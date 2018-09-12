@@ -19,6 +19,21 @@ h5dex 第三方集成链接：<https://h5dex.loopr.io/#/auth/tpwallet>
 5. transaction.sign
    提供⼀个获取对以太坊tx进行签名的接口。数量的设置应该支持16进制字符或者10进制字符。通常情况下，我们会传递16进制字符串。
 
+## h5dex 与App交互规范
+
+```js
+{
+	"method": "user.getCurrentAccount",
+	"data": null,
+	"callback":"callback_1535945947888_74da5fe44b03f5a"
+}
+```
+
+- method: H5Dex需要App注册的方法
+- data:H5Dex传给APP的对应方法需要的参数，无需参数则data为null
+- callback:APP回传结果给H5Dex需要回调的函数名称，回调结果的参数结构为json string
+  {error:{message:"",errorCode:001}} 或者{result：""}
+
 ## h5dex 与App交互方案
 
 注：IOS和Android实例中的window为h5dex的全局window对象，App只需关注注册对应要求的对象和方法即可。
@@ -40,19 +55,4 @@ h5dex 第三方集成链接：<https://h5dex.loopr.io/#/auth/tpwallet>
   MainActivity
   TPWallet
   ```
-
-## h5dex 与App交互规范
-
-```js
-{
-	"method": "user.getCurrentAccount",
-	"data": null,
-	"callback":"callback_1535945947888_74da5fe44b03f5a"
-}
-```
-
-- method: H5Dex需要App注册的方法
-- data:H5Dex传给APP的对应方法需要的参数，无需参数则data为null
-- callback:APP回传结果给H5Dex需要回调的函数名称，回调结果的参数结构为json string
-  {error:{message:"",errorCode:001}} 或者{result：""}
 

@@ -26,6 +26,20 @@ This method calculates an Ethereum specific signature with: `sign(keccak256("\x1
 
 This method displays the Ethereum tx for the user to sign and it should support hexadecimal digits and decimal digits. In general, we deliver hexadecimal digits.
 
+## **Interaction Guideline**
+
+```
+{
+ "method": "user.getCurrentAccount",
+ "data": null,
+ "callback":"callback_1535945947888_74da5fe44b03f5a”
+}
+```
+
+- method: the method that H5Dex requires app to register.
+- data: the required parameters that H5Dex returns to app; data is null if there is no required parameter.
+- callback: the callback function that app returns the result to H5Dex. The structures of callback result are as follows: json string {error:{message:"",errorCode:001}}  or  {result：""}.
+
 ## **Interaction Program**
 
 Note：The window in iOS and Android apps is a global window object you can access from H5Dex, and app developers only need to focus on the registration of the related window object and method. 
@@ -48,18 +62,3 @@ MainActivity
 TPWallet
 ```
 
-## **Interaction Guideline**
-
-```
-{
- "method": "user.getCurrentAccount",
- "data": null,
- "callback":"callback_1535945947888_74da5fe44b03f5a”
-}
-```
-
-- method: the method that H5Dex requires app to register.
-
-- data: the required parameters that H5Dex returns to app; data is null if there is no required parameter.
-
-- callback: the callback function that app returns the result to H5Dex. The structures of callback result are as follows: json string {error:{message:"",errorCode:001}}  or  {result：""}.

@@ -2,7 +2,7 @@
 ## About
 This developer documentation introduces the use of loopring.js to access Loopring’s Protocol. loopring.js can be used to develop ethereum wallet and dex by intergrating loopring protocol.
 
-[Chinese Document (中文文档)](chinese.md)
+[Chinese Document (中文文档)](/zh-cn/loopring.js)
 
 ## Usage
 
