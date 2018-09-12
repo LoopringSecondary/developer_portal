@@ -1,24 +1,24 @@
 
-## About
+# About
 This developer documentation introduces the use of loopring.js to access Loopring’s Protocol. loopring.js can be used to develop ethereum wallet and dex by intergrating loopring protocol.
 
 [Chinese Document (中文文档)](/zh-cn/loopring.js)
 
-## Usage
+# Usage
 
 Note: loopring.js is only applicable to the browser environment, and some functions in node environment cannot be used.
 
-### Installation
+## Installation
 
 ```javascript
  npm install loopring.js --save
 ```
 
-### Browser Usage
+## Browser Usage
 
 loopring.js ships as both a [UMD](https://github.com/umdjs/umd) module and a [CommonJS](https://en.wikipedia.org/wiki/CommonJS) package.
 
-- ##### UMD Package
+- ### UMD Package
 
 
 Include the following script tag in your HTML:
@@ -38,7 +38,7 @@ window.loopring.SocketUtils
 window.loopring.Utils
 ```
 
-- ##### CommonJS  Package   
+- ### CommonJS  Package   
 
   using commonjs version loopring.js, babel-polyfill is required，
 
@@ -50,11 +50,11 @@ or
 const loopring = require('loopring.js');
 ```
 
-## Getting Started
+# Getting Started
 
-### How to develop an ethereum wallet
+## How to develop an ethereum wallet
 
-- #### Create Wallet
+- ### Create Wallet
 
   ```javascript
   import {WalletUtils,ethereum} from 'loopring.js'
@@ -66,9 +66,9 @@ const loopring = require('loopring.js');
   const address = account.getAddress()
   ```
 
-- #### Unlock Wallet
+- ### Unlock Wallet
 
-  - ##### Unlock Mnemonic
+  - #### Unlock Mnemonic
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -84,7 +84,7 @@ const loopring = require('loopring.js');
     }
     ```
 
-  - ##### Unlock Keystore
+  - #### Unlock Keystore
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -96,7 +96,7 @@ const loopring = require('loopring.js');
      const address = account.getAddress();
     ```
 
-  - ##### Unlock PrivateKey
+  - #### Unlock PrivateKey
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -107,7 +107,7 @@ const loopring = require('loopring.js');
     const address = account.getAddress();
     ```
 
-- #### Backup Wallet
+- ### Backup Wallet
 
   ```javascript
   import {WalletUtils,ethereum,Utils} from 'loopring.js'
@@ -125,9 +125,9 @@ const loopring = require('loopring.js');
   const keystore = account.toV3Keystore('111111');
   ```
 
-- #### Sign
+- ### Sign
 
-  - ##### Sign Messgae
+  - #### Sign Messgae
 
     ```javascript
     import {Utils} from 'loopring.js';
@@ -139,7 +139,7 @@ const loopring = require('loopring.js');
       v: 28 }
     ```
 
-  - Sign Tx
+  - #### Sign Tx
 
     ```javascript
      const rawTx = {
@@ -155,9 +155,9 @@ const loopring = require('loopring.js');
       //tx:0xf86f819b8504e3b2920083015f909488699e7fee2da0462981a08a15a3b940304cc51689056bc75e2d631000008025a0d75c34cf2236bf632126f10d9ee8e963bf94623f8ec2dedb59c6d13342dbe3bea0644afdfa9812f494eee21adafc1b268c5b88bc47905880577876a8a293bd9c66 
     ```
 
-### How to integrate with Loopring  Protocol
+## How to integrate with Loopring  Protocol
 
-- #### Order Structure
+- ### Order Structure
 
   - protocol  address, here is an example version 1.5.1 protocol address: 0x8d8812b72d1e4ffCeC158D25f56748b7d67c1e78
   - delegate  address, the Loopring protocol authorization address, here is an example version 1.5.1 address: 0x17233e07c67d086464fD408148c3ABB56245FA64
@@ -175,7 +175,7 @@ const loopring = require('loopring.js');
   - lrcFee  hex string, orders fully match the maximum amount of fees that need to be paid. (Here the unit of LRC is the smallest unit)
   - marginSplitPercentage  number(0–100), the proportion of funds used to pay for the reconciliation
 
-- #### Sign Order
+- ### Sign Order
 
   ```javascript
   const order = {
@@ -218,7 +218,7 @@ const loopring = require('loopring.js');
   }
   ```
 
-- #### Submit Order
+- ### Submit Order
 
   ```javascript
   import {RelayUtils} from 'loopring.js';
@@ -255,9 +255,9 @@ const loopring = require('loopring.js');
   }
   ```
 
-- #### Cancel Order
+- ### Cancel Order
 
-  - ##### Cancel Orders by Loopring Protocol
+  - #### Cancel Orders by Loopring Protocol
 
     To cancel orders by Loopring Protocol is to send an ethereum tx, and it will cost some gas.
 
@@ -338,7 +338,7 @@ const loopring = require('loopring.js');
     }
     ```
 
-  - Cancel Order by Relay
+  - #### Cancel Order by Relay
 
     To cancel orders by Relay will not cost gas, but if the order is broadcasted to other relays, it can't be canceled by this way.
 
@@ -373,13 +373,13 @@ const loopring = require('loopring.js');
     relayRpcUtils.order.cancelOrder({sign,type,cutOff})
     ```
 
-## API
+# API
 
 note: The following code examples take the CommonJS approach
 
-### WalletUtils
+## WalletUtils
 
-#### createMnemonic()
+### createMnemonic()
 
 Generate a set of English word mnemonics, the number of words is determined by strength, 256 will get 24 words and 128 will get 12 words.
 
@@ -398,7 +398,7 @@ const mnemonic = WalletUtils.createMnemonic();
 // mnemonic: "seven museum glove patrol gain dumb dawn bridge task alone lion check interest hair scare cash sentence diary better kingdom remember nerve sunset move"
 ```
 
-#### isValidateMnemonic(mnemonic)
+### isValidateMnemonic(mnemonic)
 
 Check the validity of mnemonic
 
@@ -420,7 +420,7 @@ const isValid = WalletUtils.isValidateMnemonic(mnemonic);
 //isValid true
 ```
 
-#### privateKeytoAddress(privatekey)
+### privateKeytoAddress(privatekey)
 
 Get the address using the private key
 
@@ -440,7 +440,7 @@ const pKey = "07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466bf9e";
 WalletUtils.privateKeytoAddress(pkey); //address:0x48ff2269e58a373120FFdBBdEE3FBceA854AC30A
 ```
 
-#### publicKeytoAddress（publicKey，sanitize）
+### publicKeytoAddress（publicKey，sanitize）
 
 Get the address using the public key
 
@@ -462,7 +462,7 @@ WalletUtils.publicKeytoAddress(publicKey)
 //address:0x48ff2269e58a373120FFdBBdEE3FBceA854AC30A
 ```
 
-#### privateKeytoPublic(privatekey)
+### privateKeytoPublic(privatekey)
 
 Get the public key using the private key
 
@@ -484,7 +484,7 @@ const publicKey = WalletUtils.privateKeytoPublic(privateKey);
 //publicKey:"0895b915149d15148ac4171f453060d6b53a9ebb694689351df8e3a49c109c7a65374b5c196ce8cc35ff79cb3ce54ea1695704dd5b3cfc6864bd110b62cfd509"
 ```
 
-#### decryptKeystoreToPkey(keystore, password)
+### decryptKeystoreToPkey(keystore, password)
 
 Decrypt mnemonics to get private key
 
@@ -507,7 +507,7 @@ const password = "1111111";
 const privatekey =  WalletUtils.decryptKeystoreToPkey(keystore,password);
 ```
 
-#### pkeyToKeystore(privateKey, password)
+### pkeyToKeystore(privateKey, password)
 
 Decrypt the private key using the keystore and password
 
@@ -545,7 +545,7 @@ const keystore = WalletUtils.pkeyToKeystore(privateKey,password);
      mac: '33fb274ba8eb91674f0e5957e86784358cf65d9593c4b1e55333299a94249565' } }
 ```
 
-#### mnemonictoPrivatekey(mnemonic, dpath, password)
+### mnemonictoPrivatekey(mnemonic, dpath, password)
 
 Decrypt mnemonics to get private key
 
@@ -569,7 +569,7 @@ const dpath = "m/44'/60'/0'/0/0";
 const privateKey = WalletUtils.mnemonictoPrivatekey(mnemonic,dpath);
 ```
 
-#### fromMnemonic(mnemonic, dpath, password)
+### fromMnemonic(mnemonic, dpath, password)
 
 ##### Parameters
 
@@ -590,7 +590,7 @@ const password = "1111111";
 const account =  WalletUtils.fromMnemonic(mnemonic,dpath,password);
 ```
 
-#### fromKeystore(keystone,password)
+### fromKeystore(keystone,password)
 
 ##### Parameters
 
@@ -611,7 +611,7 @@ const password = "1111111";
 const account =  WalletUtils.fromKeystore(keystore,password);
 ```
 
-#### fromPrivateKey(privateKey)
+### fromPrivateKey(privateKey)
 
 ##### Parameters
 
@@ -630,7 +630,7 @@ const privateKey = "07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466
 const account = WalletUtils.fromPrivateKey(privateKey);
 ```
 
-#### fromLedger(dpath)
+### fromLedger(dpath)
 
 ##### Parameters
 
@@ -653,7 +653,7 @@ const account = await WalletUtils.fromLedger(dpath)
 }
 ```
 
-##### fromTrezor
+### fromTrezor
 
 ##### Parameters
 
@@ -672,7 +672,7 @@ const dpath = "m/44'/60'/0'/0/0"
 const account = await WalletUtils.fromTrezor(dpath)    
 ```
 
-##### fromMetaMask
+### fromMetaMask
 
 ##### Parameters
 
@@ -691,11 +691,11 @@ const dpath = "m/44'/60'/0'/0/0"
 const account = await WalletUtils.fromMetaMask(web3)    
 ```
 
-### ContractUtils
+## ContractUtils
 
 Contains of ERC20Token，WETH，AirdropContract，LoopringProtocol ，supports the encode and decode operations of ABI for corresponding contracts.
 
-#### encodeInputs(method, inputs)
+### encodeInputs(method, inputs)
 
 encode the inputs of giving method。
 
@@ -719,7 +719,7 @@ const method='transfer' //(transfer(address,uint256) or '0xa9059cbb')
  //data:"0xa9059cbb000000000000000000000000d91a7cb8efc59f485e999f02019bf2947b15ee1d0000000000000000000000000000000000000000000008ac7230489e80000"
 ```
 
-#### decodeEncodeInputs(data)
+### decodeEncodeInputs(data)
 
 Decode the encoded input parameter data of the specified method.
 
@@ -741,7 +741,7 @@ const inputs = ContractUtils.ERC20Token.decodeEncodeInputs(data);
 //inputs:['88699e7fee2da0462981a08a15a3b940304cc516','0xde0b6b3a7640000']
 ```
 
-#### decodeOutputs(method, data)
+### decodeOutputs(method, data)
 
 decode the outputs of giving method。
 
@@ -766,7 +766,7 @@ const outputs = ContractUtils.ERC20Token.decodeOutputs(method, data);
 
 LoopringProtocol adds the encodECancelOrder and the encodeSubmitRing
 
-#### encodeCancelOrder(signedOrder, amount)
+### encodeCancelOrder(signedOrder, amount)
 
 There is a specified number of orders that can be assigned at once. If the amount exceeds the order availability, the order is marked as complete cancellation.
 
@@ -828,7 +828,7 @@ const data = ContractUtils.LoopringProtocol.encodeCancelOrder(signedOrder);
 "0x8c59f7ca000000000000000000000000b94065482ad64d4c2b9252358d746b39e820a582000000000000000000000000ef68e7c694f40c8202821edf525de3782458639f000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000b94065482ad64d4c2b9252358d746b39e820a5820000000000000000000000005b98dac691be2f2882bfb79067ee50c221d2020300000000000000000000000000000000000000000000000ad78ebc5ac62000000000000000000000000000000000000000000000000000000429d069189e0000000000000000000000000000000000000000000000000000000000005b038122000000000000000000000000000000000000000000000000000000005b04d2a20000000000000000000000000000000000000000000000000928ca80cfc2000000000000000000000000000000000000000000000000000ad78ebc5ac620000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032000000000000000000000000000000000000000000000000000000000000001cbdf3c5bdeeadbddc0995d7fb51471e2166774c8ad5ed9cc315635985c190e5734ab135ff654c3f5e87183865175b6180e342565525eefc56bf2a0d5d5c564a73"
 ```
 
-#### encodeSubmitRing(orders,feeRecipient, feeSelections)
+### encodeSubmitRing(orders,feeRecipient, feeSelections)
 
 ##### Parameters
 
@@ -840,11 +840,11 @@ const data = ContractUtils.LoopringProtocol.encodeCancelOrder(signedOrder);
 
 - data                     hex string
 
-### EthRpcUtils
+## EthRpcUtils
 
 implements Ethereum jsonrpc interfaces
 
-#### construction method
+### construction method
 
 ##### Parameters
 
@@ -859,7 +859,7 @@ const host = 'localhost:8545';
 const ethRpcUtils = new EthRpcUtils(host);
 ```
 
-#### getTransactionCount({address,tag})
+### getTransactionCount({address,tag})
 
 Get the transactionCount at the specified address
 
@@ -873,39 +873,39 @@ const tag = "latest"
 ethRpcUtils.getTransactionCount({address,tag})
 ```
 
-#### sendRawTransaction(signTx)
+### sendRawTransaction(signTx)
 
 Send signature transactions to Ethereum nodes
 
 For details, reference: [Ethereum JSON-RPC eth_sendRawTransaction interface](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendrawtransaction)
 
-#### getGasPrice()
+### getGasPrice()
 
 Get the average gas price of the Ethereum network
 
 For details, reference: [Ethereum JSON-RPC eth_gasPrice interface](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gasprice)
 
-#### getAccountBalance({address,tag})
+### getAccountBalance({address,tag})
 
 Get the Ethereum balance for the specified address
 
 For details, reference: [Ethereum JSON-RPC eth_getBalance interface](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getbalance)
 
-#### getTransactionByhash(hash)
+### getTransactionByhash(hash)
 
 Get the transaction details for the specified hash
 
 For details, reference: [Ethereum JSON-RPC eth_getTransactionByHash interface](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash)
 
-#### call({tx,tag})
+### call({tx,tag})
 
 Simulate a tx
 
 For details, reference: [Ethereum JSON-RPC eth_call interface](
 
-### RelayRpcUtils
+## RelayRpcUtils
 
-#### construction method
+### construction method
 
 ##### Parameters
 
@@ -922,7 +922,7 @@ const relayRpcUtils = new RelayRpcUtils(host)
 
 RelayRpcUtils contains four partial objects, namely, account, market, ring and order, which respectively implement the corresponding interfaces of relay RPC. The following is the specific interface.
 
-#### Account interfaces
+### Account interfaces
 
 ------
 
@@ -970,7 +970,7 @@ Get the specified owner address of the portfolio
 
 For details, reference: [Loopring Relay getPortfolio interface](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_getportfolio)
 
-#### Market interfaces
+### Market interfaces
 
 ------
 
@@ -1016,7 +1016,7 @@ Obtain trend information such as price changes for specific markets at multiple 
 
 For details, reference: [Loopring Relay getTrend interface](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_gettrend)
 
-#### Order Interfaces
+### Order Interfaces
 
 ------
 
@@ -1048,7 +1048,7 @@ Calculate orderHash
 
 For details, reference: [Loopring Relay placeOrder interface](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_flexcancelorder)
 
-#### Ring interfaces
+### Ring interfaces
 
 ------
 
@@ -1070,11 +1070,11 @@ Get order match history
 
 For details, reference: [Loopring Relay getFills interface ](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_getfills)
 
-### SocketUtils
+## SocketUtils
 
 The Loopring Relay implements Web Sockets using socket.io. See the Loopring Relay socket event list for details: [Loopring Relay socket interface](https://loopring.github.io/relay-cluster/relay_api_spec_v2)
 
-#### Creation Method
+### Creation Method
 
 Connect to the socket server for the specified url. For details, reference: [socket.io_client api documents](https://github.com/socketio/socket.io-client/blob/master/docs/API.md#iourl-options)
 
@@ -1093,7 +1093,7 @@ const options= {transports: ['websocket']};
 const socketUtils = new SocketUtils(url,options)
 ```
 
-#### emit (event, options)
+### emit (event, options)
 
 Send a message to the relay, then start monitoring the specified event or update the conditions of the specified event
 
@@ -1110,7 +1110,7 @@ const options = '{"owner" : "0x847983c3a34afa192cfee860698584c030f4c9db1"}';
 socketUtils.emit(event,options)
 ```
 
-#### on(event,handle)
+### on(event,handle)
 
 Focus on the data of the specified event
 
@@ -1127,7 +1127,7 @@ const handle = (data)=> {console.log(data)}
 socketUtils.on(event,handle);
 ```
 
-#### close()
+### close()
 
 Manually disconnect the socket connection
 
@@ -1137,9 +1137,9 @@ Manually disconnect the socket connection
 socketUtils.close()
 ```
 
-### Utils
+## Utils
 
-#### toBuffer(data)
+### toBuffer(data)
 
 ##### Parameters
 
@@ -1158,7 +1158,7 @@ const data = "0x123456789"
 const buffer_data = Utils.toBuffer(data)
 ```
 
-#### toHex(data)
+### toHex(data)
 
 ##### Parameters
 
@@ -1177,7 +1177,7 @@ const data = 64
 const hex_string = Utils.toHex(data) // 0x40
 ```
 
-#### toNumber(data)
+### toNumber(data)
 
 ##### Parameters
 
@@ -1196,7 +1196,7 @@ const data = "0x40"
 const num = Utils.toNumber(data) // 64
 ```
 
-#### toBig(data)
+### toBig(data)
 
 ##### Parameters
 
@@ -1215,7 +1215,7 @@ const data = "0x123456789"
 const bignumber = Utils.toBig(data)
 ```
 
-##### toBN
+### toBN
 
 ##### Parameters
 
@@ -1234,7 +1234,7 @@ const data = "0x123456789"
 const bn = Utils.toBN(data)
 ```
 
-##### formatKey(key)
+### formatKey(key)
 
 ##### Parameters
 
@@ -1254,7 +1254,7 @@ const formattedKey = Utils.formatKey(key)
 //"07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466bf9e"
 ```
 
-#### formatAddress(add)
+### formatAddress(add)
 
 ##### Parameters
 
@@ -1274,15 +1274,15 @@ const formattedAdd = Utils.formatAddress(add)
 //"0xb94065482Ad64d4c2b9252358D746B39e820A582"
 ```
 
-#### addHexPrefix(data)
+### addHexPrefix(data)
 
 add hex prefix "0x"
 
-#### clearHexPrefix
+### clearHexPrefix
 
 Clear hex prefix "0x"
 
-#### toFixed(data,precision,ceil)
+### toFixed(data,precision,ceil)
 
 ##### Parameters
 
@@ -1303,7 +1303,7 @@ const data = 123.45
 const fixed_num = Utils.toFixed(data,1) // 123.4
 ```
 
-#### keccakHash(mes)
+### keccakHash(mes)
 
 ##### Parameters
 
@@ -1322,7 +1322,7 @@ const mes = "0x12121"
 const hash = Utils.keccakHash(mes)
 ```
 
-#### hashPersonalMessage(mes)
+### hashPersonalMessage(mes)
 
 keccak256("\x19Ethereum Signed Message:\n" + len(message) + message))
 
