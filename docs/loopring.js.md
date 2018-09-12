@@ -18,7 +18,7 @@ Note: loopring.js is only applicable to the browser environment, and some functi
 
 loopring.js ships as both a [UMD](https://github.com/umdjs/umd) module and a [CommonJS](https://en.wikipedia.org/wiki/CommonJS) package.
 
-- ### UMD Package
+- #### UMD Package
 
 
 Include the following script tag in your HTML:
@@ -38,7 +38,7 @@ window.loopring.SocketUtils
 window.loopring.Utils
 ```
 
-- ### CommonJS  Package   
+- #### CommonJS  Package   
 
   using commonjs version loopring.js, babel-polyfill is required，
 

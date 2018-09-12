@@ -1,22 +1,22 @@
-## 关于Loopring.js
+# 关于Loopring.js
 
 该开发者文档主要介绍如果使用loopring.js接入路印协议。loopring.js 库可以帮助用户完成以太坊钱包以及接入路印协议开发去中心化交易所功能。loopring.js封装了Loopring Relay的JSON-RPC 接口和SocketIO接口。具体的接口详情见[Loopring Relay 接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2)。
 
-## 如何使用
+# 如何使用
 
 注：loopring.js 仅适用于浏览器环境，node环境下部分功能无法使用。
 
-### 安装
+## 安装
 
 ```javascript
  npm install loopring.js --save
 ```
 
-### 引用方法
+## 引用方法
 
 loopring.js包含UMD规范的版本和CommonJS规范的版本
 
-- ##### UMD 规范包
+- #### UMD 规范包
 
 
 通过下面的方式引入 loopring.min.js
@@ -36,7 +36,7 @@ window.loopring.SocketUtils
 window.loopring.Utils
 ```
 
-- ##### CommonJS  规范包 
+- #### CommonJS  规范包 
 
   引用commojs规范包，需要引入 babel-polyfill
 
@@ -48,11 +48,11 @@ or
 const loopring = require('loopring.js');
 ```
 
-## 快速上手
+# 快速上手
 
-### 如何开发以太坊钱包
+## 如何开发以太坊钱包
 
-- #### 创建钱包
+- ### 创建钱包
 
   ```javascript
   import {WalletUtils,ethereum} from 'loopring.js'
@@ -64,9 +64,9 @@ const loopring = require('loopring.js');
   const address = account.getAddress()
   ```
 
-- #### 解锁钱包
+- ### 解锁钱包
 
-  - ##### 解锁助记词钱包
+  - #### 解锁助记词钱包
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -82,7 +82,7 @@ const loopring = require('loopring.js');
     }
     ```
 
-  - ##### 解锁Keystore钱包
+  - #### 解锁Keystore钱包
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -94,7 +94,7 @@ const loopring = require('loopring.js');
     const address = account.getAddress();
     ```
 
-  - ##### 解锁私钥
+  - #### 解锁私钥
 
     ```javascript
     import {WalletUtils} from 'loopring.js'
@@ -105,7 +105,7 @@ const loopring = require('loopring.js');
     const address = account.getAddress();
     ```
 
-- #### 备份钱包
+- ### 备份钱包
 
   ```javascript
   import {WalletUtils,ethereum,Utils} from 'loopring.js'
@@ -123,9 +123,9 @@ const loopring = require('loopring.js');
   const keystore = account.toV3Keystore('111111');
   ```
 
-- #### 签名
+- ### 签名
 
-  - ##### 签名信息
+  - #### 签名信息
 
     ```javascript
     import {Utils} from 'loopring.js';
@@ -137,7 +137,7 @@ const loopring = require('loopring.js');
       v: 28 }
     ```
 
-  - ##### 签名交易
+  - #### 签名交易
 
     ```javascript
     const rawTx = {
@@ -153,9 +153,9 @@ const loopring = require('loopring.js');
     //tx:0xf86f819b8504e3b2920083015f909488699e7fee2da0462981a08a15a3b940304cc51689056bc75e2d631000008025a0d75c34cf2236bf632126f10d9ee8e963bf94623f8ec2dedb59c6d13342dbe3bea0644afdfa9812f494eee21adafc1b268c5b88bc47905880577876a8a293bd9c66
     ```
 
-### 如何接入路印协议
+## 如何接入路印协议
 
-- #### 订单结构
+- ### 订单结构
 
   - protocol    address      路印撮合协议地址，例如 1.5.1版本：0x8d8812b72d1e4ffCeC158D25f56748b7d67c1e78
   - delegate   address      路印协议授权地址，例如 1.5.1 版本 ：0x17233e07c67d086464fD408148c3ABB56245FA64
@@ -173,7 +173,7 @@ const loopring = require('loopring.js');
   - lrcFee           hex string    订单完全撮合最多需要支付的撮合费。（这里以LRC的最小单位作单位）
   - marginSplitPercentage   number(0–100)  撮合分润中用来支付撮合费的比例
 
-- #### 订单签名
+- ### 订单签名
 
   ```javascript
   const order = {
@@ -216,7 +216,7 @@ const loopring = require('loopring.js');
   }
   ```
 
-- #### 提交订单
+- ### 提交订单
 
   ```javascript
   import {RelayUtils} from 'loopring.js';
@@ -253,9 +253,9 @@ const loopring = require('loopring.js');
   }
   ```
 
-- #### 取消订单
+- ### 取消订单
 
-  - ##### 硬取消-- 通过以太坊交易取消订单，需要消耗以太坊油费
+  - #### 硬取消-- 通过以太坊交易取消订单，需要消耗以太坊油费
 
     ```javascript
     import {ContractUtils,EthRpcUtils，Utils} from 'loopring.js'
@@ -334,7 +334,7 @@ const loopring = require('loopring.js');
     }
     ```
 
-  - ##### 软取消--通过relay进行取消订单，无需消耗以太坊油费，但是如果订单被广播，可能无法成功取消
+  - #### 软取消--通过relay进行取消订单，无需消耗以太坊油费，但是如果订单被广播，可能无法成功取消
 
     ```javascript
     import {Utils,RelayRpcUtils} from 'loopring.js'
@@ -367,13 +367,13 @@ const loopring = require('loopring.js');
     relayRpcUtils.order.cancelOrder({sign,type,cutOff})
     ```
 
-## API
+# API
 
 注：API 的使用文档中的代码事例采用CommonJS 使用方式
 
-### WalletUtils
+## WalletUtils
 
-#### createMnemonic()
+### createMnemonic()
 
 生成一组英文助记词,根据参数strength的数字决定助记词长度，256 对应24个单词，128 对应12个单词。
 
@@ -392,7 +392,7 @@ const mnemonic = WalletUtils.createMnemonic();
 // mnemonic: "seven museum glove patrol gain dumb dawn bridge task alone lion check interest hair scare cash sentence diary better kingdom remember nerve sunset move"
 ```
 
-#### isValidateMnemonic(mnemonic)
+### isValidateMnemonic(mnemonic)
 
 验证助记词的合法性
 
@@ -414,7 +414,7 @@ const isValid = WalletUtils.isValidateMnemonic(mnemonic);
 //isValid true
 ```
 
-#### privateKeytoAddress(privatekey)
+### privateKeytoAddress(privatekey)
 
 通过私钥获取地址
 
@@ -434,7 +434,7 @@ const pKey = "07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466bf9e";
 WalletUtils.privateKeytoAddress(pkey); //address:0x48ff2269e58a373120FFdBBdEE3FBceA854AC30A
 ```
 
-#### publicKeytoAddress（publicKey，sanitize）
+### publicKeytoAddress（publicKey，sanitize）
 
 通过公钥获得地址
 
@@ -456,7 +456,7 @@ WalletUtils.publicKeytoAddress(publicKey)
 //address:0x48ff2269e58a373120FFdBBdEE3FBceA854AC30A
 ```
 
-#### privateKeytoPublic(privatekey)
+### privateKeytoPublic(privatekey)
 
 通过私钥获取公钥
 
@@ -478,7 +478,7 @@ const publicKey = WalletUtils.privateKeytoPublic(privateKey);
 //publicKey:"0895b915149d15148ac4171f453060d6b53a9ebb694689351df8e3a49c109c7a65374b5c196ce8cc35ff79cb3ce54ea1695704dd5b3cfc6864bd110b62cfd509"
 ```
 
-#### decryptKeystoreToPkey(keystore, password)
+### decryptKeystoreToPkey(keystore, password)
 
 通过keystore和password 解锁得到私钥
 
@@ -501,7 +501,7 @@ const password = "1111111";
 const privatekey =  WalletUtils.decryptKeystoreToPkey(keystore,password);
 ```
 
-#### pkeyToKeystore(privateKey, password)
+### pkeyToKeystore(privateKey, password)
 
 通过privateKey 和 password 获得Keystore
 
@@ -539,7 +539,7 @@ const keystore = WalletUtils.pkeyToKeystore(privateKey,password);
      mac: '33fb274ba8eb91674f0e5957e86784358cf65d9593c4b1e55333299a94249565' } }
 ```
 
-#### mnemonictoPrivatekey(mnemonic, dpath, password)
+### mnemonictoPrivatekey(mnemonic, dpath, password)
 
 解锁助记词得到私钥
 
@@ -563,7 +563,7 @@ const dpath = "m/44'/60'/0'/0/0";
 const privateKey = WalletUtils.mnemonictoPrivatekey(mnemonic,dpath);
 ```
 
-#### fromMnemonic(mnemonic, dpath, password)
+### fromMnemonic(mnemonic, dpath, password)
 
 ##### 参数
 
@@ -584,7 +584,7 @@ const password = "1111111";
 const account =  WalletUtils.fromMnemonic(mnemonic,dpath,password);
 ```
 
-#### fromKeystore(keystone,password)
+### fromKeystore(keystone,password)
 
 ##### 参数
 
@@ -605,7 +605,7 @@ const password = "1111111";
 const account =  WalletUtils.fromKeystore(keystore,password);
 ```
 
-#### fromPrivateKey(privateKey)
+### fromPrivateKey(privateKey)
 
 ##### 参数
 
@@ -624,7 +624,7 @@ const privateKey = "07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466
 const account = WalletUtils.fromPrivateKey(privateKey);
 ```
 
-#### fromLedger(dpath)
+### fromLedger(dpath)
 
 ##### 参数
 
@@ -647,7 +647,7 @@ const account = await WalletUtils.fromLedger(dpath)
 }
 ```
 
-##### fromTrezor
+### fromTrezor
 
 ##### 参数
 
@@ -666,7 +666,7 @@ const dpath = "m/44'/60'/0'/0/0"
 const account = await WalletUtils.fromTrezor(dpath)    
 ```
 
-##### fromMetaMask
+### fromMetaMask
 
 ##### 参数
 
@@ -685,11 +685,11 @@ const dpath = "m/44'/60'/0'/0/0"
 const account = await WalletUtils.fromMetaMask(web3)    
 ```
 
-### ContractUtils
+## ContractUtils
 
 包含ERC20Token，WETH，AirdropContract，LoopringProtocol 4个合约，支持对应合约的ABI的encode和decode操作。
 
-#### encodeInputs(method, inputs)
+### encodeInputs(method, inputs)
 
 encode 指定方法的inputs。
 
@@ -713,7 +713,7 @@ const method='transfer' //(transfer(address,uint256) or '0xa9059cbb')
  //data:"0xa9059cbb000000000000000000000000d91a7cb8efc59f485e999f02019bf2947b15ee1d0000000000000000000000000000000000000000000008ac7230489e80000"
 ```
 
-#### decodeEncodeInputs(data)
+### decodeEncodeInputs(data)
 
 decode 已经encoded 指定method的inputs参数。
 
@@ -735,7 +735,7 @@ const inputs = ContractUtils.ERC20Token.decodeEncodeInputs(data);
 //inputs:['88699e7fee2da0462981a08a15a3b940304cc516','0xde0b6b3a7640000']
 ```
 
-#### decodeOutputs(method, data)
+### decodeOutputs(method, data)
 
 decode 指定method的outputs 。
 
@@ -760,7 +760,7 @@ const outputs = ContractUtils.ERC20Token.decodeOutputs(method, data);
 
 LoopringProtocol 封装实现了encodECancelOrder, encodeSubmitRing
 
-#### encodeCancelOrder(signedOrder, amount)
+### encodeCancelOrder(signedOrder, amount)
 
 取消指定amount数量的订单可成交量。如果amount 超过订单可成家量，则订单记为完全取消。
 
@@ -822,7 +822,7 @@ const data = ContractUtils.LoopringProtocol.encodeCancelOrder(signedOrder);
 "0x8c59f7ca000000000000000000000000b94065482ad64d4c2b9252358d746b39e820a582000000000000000000000000ef68e7c694f40c8202821edf525de3782458639f000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000b94065482ad64d4c2b9252358d746b39e820a5820000000000000000000000005b98dac691be2f2882bfb79067ee50c221d2020300000000000000000000000000000000000000000000000ad78ebc5ac62000000000000000000000000000000000000000000000000000000429d069189e0000000000000000000000000000000000000000000000000000000000005b038122000000000000000000000000000000000000000000000000000000005b04d2a20000000000000000000000000000000000000000000000000928ca80cfc2000000000000000000000000000000000000000000000000000ad78ebc5ac620000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000032000000000000000000000000000000000000000000000000000000000000001cbdf3c5bdeeadbddc0995d7fb51471e2166774c8ad5ed9cc315635985c190e5734ab135ff654c3f5e87183865175b6180e342565525eefc56bf2a0d5d5c564a73"
 ```
 
-#### encodeSubmitRing(orders,feeRecipient, feeSelections)
+### encodeSubmitRing(orders,feeRecipient, feeSelections)
 
 ##### 参数
 
@@ -834,11 +834,11 @@ const data = ContractUtils.LoopringProtocol.encodeCancelOrder(signedOrder);
 
 - data                     hex string
 
-### EthRpcUtils
+## EthRpcUtils
 
 实现部分Ethereum jsonrpc 接口
 
-#### 构造方法
+### 构造方法
 
 ##### 参数
 
@@ -853,7 +853,7 @@ const host = 'localhost:8545';
 const ethRpcUtils = new EthRpcUtils(host);
 ```
 
-#### getTransactionCount({address,tag})
+### getTransactionCount({address,tag})
 
 获得指定地址的transactionCount
 
@@ -867,39 +867,39 @@ const tag = "latest"
 ethRpcUtils.getTransactionCount({address,tag})
 ```
 
-#### sendRawTransaction(signTx)
+### sendRawTransaction(signTx)
 
 向以太坊节点发送签名交易
 
 详情参考 [Ethereum JSON-RPC eth_sendRawTransaction 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendrawtransaction)
 
-#### getGasPrice()
+### getGasPrice()
 
 获得Ethereum 网络的平均gas price
 
 详情参考 [Ethereum JSON-RPC eth_gasPrice 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gasprice)
 
-#### getAccountBalance({address,tag})
+### getAccountBalance({address,tag})
 
 查询指定address 的Ethereum 余额
 
 详情参考 [Ethereum JSON-RPC eth_getBalance 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_getbalance)
 
-#### getTransactionByhash(hash)
+### getTransactionByhash(hash)
 
 获得指定hash的transaction详情
 
 详情参考 [Ethereum JSON-RPC eth_getTransactionByHash 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_gettransactionbyhash)
 
-#### call({tx,tag})
+### call({tx,tag})
 
 模拟执行一条tx
 
 详情参考 [Ethereum JSON-RPC eth_call 接口](https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_call)
 
-### RelayRpcUtils
+## RelayRpcUtils
 
-#### 构造方法
+### 构造方法
 
 ##### 参数
 
@@ -916,7 +916,7 @@ const relayRpcUtils = new RelayRpcUtils(host)
 
 RelayRpcUtils 包含account、market、ring、 order四个部分对象，分别实现了relay rpc对应部分的结构，以下是具体的接口。
 
-account 相关接口
+### account 相关接口
 
 ------
 
@@ -964,7 +964,7 @@ const response = relayRpcUtils.account.getBalance({owner,delegataAddress});
 
 详情参考 [Loopring Relay 接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_getportfolio)
 
-market相关接口
+### market相关接口
 
 ------
 
@@ -1010,7 +1010,7 @@ market相关接口
 
 详情参考[Loopring Relay 的接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_gettrend)
 
-order相关接口
+### order相关接口
 
 ------
 
@@ -1036,7 +1036,9 @@ order相关接口
 
 计算orderHash
 
-ring相关接口
+### ring相关接口
+
+------
 
 #### cancelOrder(params)
 
@@ -1064,11 +1066,11 @@ ring相关接口
 
 详情参考 [Loopring Relay 接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2#loopring_getfills)
 
-### SocketUtils
+## SocketUtils
 
 Loopring Relay 使用socket.io 实现Web Socket。Loopring Relay 的socket 事件列表详情见[Loopring Relay接入文档](https://loopring.github.io/relay-cluster/relay_api_spec_v2)
 
-#### 构造方法
+### 构造方法
 
 连接指定url的socket 服务器，详情参考 [socket.io_client api 文档](https://github.com/socketio/socket.io-client/blob/master/docs/API.md#iourl-options)
 
@@ -1086,7 +1088,7 @@ const options= {transports: ['websocket']};
 const socketUtils = new SocketUtils(url,options)
 ```
 
-#### emit ( event, options)
+### emit ( event, options)
 
 向relay发送一条消息，开始监听指定的event或者更新指定事件的条件
 
@@ -1103,7 +1105,7 @@ const options = '{"owner" : "0x847983c3a34afa192cfee860698584c030f4c9db1"}';
 socketUtils.emit(event,options)
 ```
 
-#### on(event,handle)
+### on(event,handle)
 
 监听指定event 的数据返回
 
@@ -1120,7 +1122,7 @@ const handle = (data)=> {console.log(data)}
 socketUtils.on(event,handle);
 ```
 
-#### close()
+### close()
 
 手动断开socket连接
 
@@ -1130,9 +1132,9 @@ socketUtils.on(event,handle);
 socketUtils.close()
 ```
 
-### Utils
+## Utils
 
-#### toBuffer(data)
+### toBuffer(data)
 
 ##### 参数
 
@@ -1151,7 +1153,7 @@ const data = "0x123456789"
 const buffer_data = Utils.toBuffer(data)
 ```
 
-#### toHex(data)
+### toHex(data)
 
 ##### 参数
 
@@ -1170,7 +1172,7 @@ const data = 64
 const hex_string = Utils.toHex(data) // 0x40
 ```
 
-#### toNumber(data)
+### toNumber(data)
 
 ##### 参数
 
@@ -1189,7 +1191,7 @@ const data = "0x40"
 const num = Utils.toNumber(data) // 64
 ```
 
-#### toBig(data)
+### toBig(data)
 
 ##### 参数
 
@@ -1208,7 +1210,7 @@ const data = "0x123456789"
 const bignumber = Utils.toBig(data)
 ```
 
-##### toBN
+### toBN
 
 ##### 参数
 
@@ -1227,7 +1229,7 @@ const data = "0x123456789"
 const bn = Utils.toBN(data)
 ```
 
-##### formatKey(key)
+### formatKey(key)
 
 ##### 参数
 
@@ -1247,7 +1249,7 @@ const formattedKey = Utils.formatKey(key)
 //"07ae9ee56203d29171ce3de536d7742e0af4df5b7f62d298a0445d11e466bf9e"
 ```
 
-#### formatAddress(add)
+### formatAddress(add)
 
 ##### 参数
 
@@ -1267,15 +1269,15 @@ const formattedAdd = Utils.formatAddress(add)
 //"0xb94065482Ad64d4c2b9252358D746B39e820A582"
 ```
 
-#### addHexPrefix(data)
+### addHexPrefix(data)
 
 添加hex 前缀“0x”
 
-#### clearHexPrefix
+### clearHexPrefix
 
  去掉hex前缀“0x”
 
-#### toFixed(data,precision,ceil)
+### toFixed(data,precision,ceil)
 
 ##### 参数
 
@@ -1296,7 +1298,7 @@ const data = 123.45
 const fixed_num = Utils.toFixed(data,1) // 123.4
 ```
 
-#### keccakHash(mes)
+### keccakHash(mes)
 
 ##### 参数
 
@@ -1315,7 +1317,7 @@ const mes = "0x12121"
 const hash = Utils.keccakHash(mes)
 ```
 
-#### hashPersonalMessage(mes)
+### hashPersonalMessage(mes)
 
 keccak256("\x19Ethereum Signed Message:\n" + len(message) + message))
 
